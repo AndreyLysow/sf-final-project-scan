@@ -5,7 +5,6 @@ import Footer from "./modules/Footer/footer";
 import Error from "./modules/Error-page/error";
 import Authorization from "./modules/Authorization/auth";
 import Search from "./modules/Search/search";
-import SearchResult from "./modules/SearchResult/searchResult";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const routesData = [
