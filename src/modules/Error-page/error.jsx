@@ -9,7 +9,7 @@ function Error() {
       </div>
       <p className="error__info">
         Страница в разработке <br />
-        Перейдите на <Link to="/">главную</Link>
+        Перейдите на <Link to="/"><span>Главную</span></Link>
       </p>
     </div>
   );
