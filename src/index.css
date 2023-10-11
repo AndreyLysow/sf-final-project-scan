@@ -1,13 +1,32 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Ferry";
+  src: url(./assets/fonts/ferry.ttf);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/inter.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  max-width: 100vw;
+}
+
+:root {
+  --main-color-green: #029491;
+  --main-color-light-green: #7ce3e1;
+  --main-color-yellow: #ffb64f;
+  --main-color-blue: #5970ff;
+  --letter-spacing: 0.01em;
+  --transition: all 0.3s ease;
+  --padding: 40px 60px;
 }
