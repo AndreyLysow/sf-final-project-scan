@@ -9,9 +9,9 @@ import scan from "../../assets/img/logo-header.svg";
 // import store from "../../store/store";
 
 const Header = observer(() => {
-  useEffect(() => {
-    store.checkToken();
-  }, []);
+  // useEffect(() => {
+  //   store.checkToken();
+  // }, []);
 
   return (
     <header className="header">
