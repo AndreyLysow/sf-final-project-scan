@@ -5,6 +5,7 @@ import Footer from "./modules/Footer/footer";
 import Error from "./modules/Error-page/error";
 import Authorization from "./modules/Authorization/auth";
 import Search from "./modules/Search/search";
+import SearchResult from "./modules/SearchResult/searchResult";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const routesData = [
@@ -12,6 +13,7 @@ const routesData = [
   { path: "/error", element: <Error /> },
   { path: "/auth", element: <Authorization /> },
   { path: "/search", element: <Search /> },
+  { path: "/result", element: <SearchResult /> },
 ];
 
 function App() {
@@ -33,4 +35,5 @@ function App() {
 }
 
 export default App;
+
 
