@@ -28,8 +28,8 @@ const Header = observer(() => {
         <Link className="header-nav__link" to="/error">
           FAQ
         </Link>
-      {/* </nav>
-      {store.token ? <Signed /> : <NotSigned />}
+      </nav>
+      {/* {store.token ? <Signed /> : <NotSigned />}
       <BurgerMenu /> */}
     </header>
   );
