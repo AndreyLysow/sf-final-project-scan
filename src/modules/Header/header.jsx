@@ -3,10 +3,10 @@ import "./header.css";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import scan from "../../assets/img/logo-header.svg";
-import Signed from "./Signed/signed";
-import NotSigned from "./NotSigned/notSigned";
-import BurgerMenu from "./BurgerMenu/burger";
-import store from "../../store/store";
+// import Signed from "./Signed/signed";
+// import NotSigned from "./NotSigned/notSigned";
+// import BurgerMenu from "./BurgerMenu/burger";
+// import store from "../../store/store";
 
 const Header = observer(() => {
   useEffect(() => {
@@ -28,9 +28,9 @@ const Header = observer(() => {
         <Link className="header-nav__link" to="/error">
           FAQ
         </Link>
-      </nav>
+      {/* </nav>
       {store.token ? <Signed /> : <NotSigned />}
-      <BurgerMenu />
+      <BurgerMenu /> */}
     </header>
   );
 });
