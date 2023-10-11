@@ -3,15 +3,15 @@ import "./header.css";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import scan from "../../assets/img/logo-header.svg";
-// import Signed from "./Signed/signed";
-// import NotSigned from "./NotSigned/notSigned";
-// import BurgerMenu from "./BurgerMenu/burger";
-// import store from "../../store/store";
+import Signed from "./Signed/signed";
+import NotSigned from "./NotSigned/notSigned";
+import BurgerMenu from "./BurgerMenu/burger";
+import store from "../../store/store";
 
 const Header = observer(() => {
-  // useEffect(() => {
-  //   store.checkToken();
-  // }, []);
+  useEffect(() => {
+    store.checkToken();
+  }, []);
 
   return (
     <header className="header">
@@ -29,8 +29,8 @@ const Header = observer(() => {
           FAQ
         </Link>
       </nav>
-      {/* {store.token ? <Signed /> : <NotSigned />}
-      <BurgerMenu /> */}
+      {store.token ? <Signed /> : <NotSigned />}
+      <BurgerMenu />
     </header>
   );
 });
