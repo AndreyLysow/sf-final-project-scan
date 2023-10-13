@@ -9,27 +9,125 @@ class Store {
   }
 
   login = "";
+  setLogin = (login) => {
+    this.login = login;
+  };
+
   password = "";
+  setPassword = (password) => {
+    this.password = password;
+  };
+
   token = "";
+  setToken = (token) => {
+    axios.interceptors.request.use(
+      (config) => {
+        config.headers["Authorization"] = `Bearer ${token}`;
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
+    this.token = token;
+  };
+
   isAuthError = false;
+  setAuthError = (bool) => {
+    this.isAuthError = bool;
+  };
+
   isLoading = false;
+  setLoading = (bool) => {
+    this.isLoading = bool;
+  };
+
   isCompaniesLoading = false;
+  setCompaniesLoading = (bool) => {
+    this.isCompaniesLoading = bool;
+  };
+
   isSummaryLoading = false;
+  setSummaryLoading = (bool) => {
+    this.isSummaryLoading = bool;
+  };
+
   isDocumentLoading = false;
+  setDocumentLoading = (bool) => {
+    this.isDocumentLoading = bool;
+  };
+
   companiesInfo = { used: 0, limit: 0 };
+  setCompanyLimits = (used, limit) => {
+    this.companiesInfo.used = used;
+    this.companiesInfo.limit = limit;
+  };
+
   inn = null;
+  setInn = (inn) => {
+    this.inn = inn;
+  };
+
   tonality = "any";
+  setTonality = (tonality) => {
+    this.tonality = tonality;
+  };
+
   limit = 0;
+  setLimit = (limit) => {
+    this.limit = limit;
+  };
+
   startDate = new Date();
+  setStartDate = (date) => {
+    this.startDate = date;
+  };
+
   endDate = new Date();
+  setEndDate = (date) => {
+    this.endDate = date;
+  };
+
   summaryResult;
+  setSummaryResult = (result) => {
+    this.summaryResult = result;
+  };
+
   summaryDates = [];
+  setSummaryDates = (dates) => {
+    this.summaryDates = dates;
+  };
+
   summaryTotal = [];
+  setSummaryTotal = (total) => {
+    this.summaryTotal = total;
+  };
+
   summaryRisks = [];
+  setSummaryRisks = (risks) => {
+    this.summaryRisks = risks;
+  };
+
   summaryAll = 0;
+  setSummaryAll = (all) => {
+    this.summaryAll = all;
+  };
+
   isSummaryError = false;
+  setSummaryError = (bool) => {
+    this.isSummaryError = bool;
+  };
+
   IDs = {};
+  setIDs = (id) => {
+    this.IDs = id;
+  };
+
   document = [];
+  setDocument = (doc) => {
+    this.document = doc;
+  };
+
   searchFormChecks = {
     isFullness: false,
     isBusiness: false,
@@ -40,193 +138,87 @@ class Store {
     isNews: false,
   };
 
-  setLogin(login) {
-    this.login = login;
-  }
-
-  setPassword(password) {
-    this.password = password;
-  }
-
-  setToken(token) {
-    this.token = token;
-    axios.interceptors.request.use(
-      (config) => {
-        config.headers["Authorization"] = `Bearer ${token}`;
-        return config;
-      },
-      (error) => {
-        return Promise.reject(error);
-      }
-    );
-  }
-
-  setAuthError(bool) {
-    this.isAuthError = bool;
-  }
-
-  setLoading(bool) {
-    this.isLoading = bool;
-  }
-
-  setCompaniesLoading(bool) {
-    this.isCompaniesLoading = bool;
-  }
-
-  setSummaryLoading(bool) {
-    this.isSummaryLoading = bool;
-  }
-
-  setDocumentLoading(bool) {
-    this.isDocumentLoading = bool;
-  }
-
-  setCompanyLimits(used, limit) {
-    this.companiesInfo.used = used;
-    this.companiesInfo.limit = limit;
-  }
-
-  setInn(inn) {
-    this.inn = inn;
-  }
-
-  setTonality(tonality) {
-    this.tonality = tonality;
-  }
-
-  setLimit(limit) {
-    this.limit = limit;
-  }
-
-  setStartDate(date) {
-    this.startDate = date;
-  }
-
-  setEndDate(date) {
-    this.endDate = date;
-  }
-
-  setSummaryResult(result) {
-    this.summaryResult = result;
-  }
-
-  setSummaryDates(dates) {
-    this.summaryDates = dates;
-  }
-
-  setSummaryTotal(total) {
-    this.summaryTotal = total;
-  }
-
-  setSummaryRisks(risks) {
-    this.summaryRisks = risks;
-  }
-
-  setSummaryAll(all) {
-    this.summaryAll = all;
-  }
-
-  setSummaryError(bool) {
-    this.isSummaryError = bool;
-  }
-
-  setIDs(id) {
-    this.IDs = id;
-  }
-
-  setDocument(doc) {
-    this.document = doc;
-  }
-
-  setSearchFormChecks(type) {
+  setSearchFormChecks = (type) => {
     switch (type) {
       case "isFullness":
-        this.searchFormChecks.isFullness = !this.searchFormChecks.isFullness;
+        this.searchFormChecks.isFullness
+          ? (this.searchFormChecks.isFullness = false)
+          : (this.searchFormChecks.isFullness = true);
         break;
       case "isBusiness":
-        this.searchFormChecks.isBusiness = !this.searchFormChecks.isBusiness;
+        this.searchFormChecks.isBusiness
+          ? (this.searchFormChecks.isBusiness = false)
+          : (this.searchFormChecks.isBusiness = true);
         break;
       case "isMainRole":
-        this.searchFormChecks.isMainRole = !this.searchFormChecks.isMainRole;
+        this.searchFormChecks.isMainRole
+          ? (this.searchFormChecks.isMainRole = false)
+          : (this.searchFormChecks.isMainRole = true);
         break;
       case "isRisksOnly":
-        this.searchFormChecks.isRisksOnly = !this.searchFormChecks.isRisksOnly;
+        this.searchFormChecks.isRisksOnly
+          ? (this.searchFormChecks.isRisksOnly = false)
+          : (this.searchFormChecks.isRisksOnly = true);
         break;
       case "isTechNews":
-        this.searchFormChecks.isTechNews = !this.searchFormChecks.isTechNews;
+        this.searchFormChecks.isTechNews
+          ? (this.searchFormChecks.isTechNews = false)
+          : (this.searchFormChecks.isTechNews = true);
         break;
       case "isAnnouncement":
-        this.searchFormChecks.isAnnouncement = !this.searchFormChecks.isAnnouncement;
+        this.searchFormChecks.isAnnouncement
+          ? (this.searchFormChecks.isAnnouncement = false)
+          : (this.searchFormChecks.isAnnouncement = true);
         break;
       case "isNews":
-        this.searchFormChecks.isNews = !this.searchFormChecks.isNews;
+        this.searchFormChecks.isNews
+          ? (this.searchFormChecks.isNews = false)
+          : (this.searchFormChecks.isNews = true);
         break;
       default:
         break;
     }
-  }
+  };
 
-  resetSearchFormChecks() {
-    for (let key in this.searchFormChecks) {
-      this.searchFormChecks[key] = false;
-    }
-  }
+  resetSearchFormChecks = () => {
+    this.searchFormChecks.isFullness = false;
+    this.searchFormChecks.isBusiness = false;
+    this.searchFormChecks.isMainRole = false;
+    this.searchFormChecks.isRisksOnly = false;
+    this.searchFormChecks.isTechNews = false;
+    this.searchFormChecks.isAnnouncement = false;
+    this.searchFormChecks.isNews = false;
+  };
 
-  getToken() {
-    // Устанавливаем флаг isLoading в true для отображения индикатора загрузки
+  getToken = () => {
     this.setLoading(true);
-  
     axios
-      .post(API + "/api/v1/account/login", {
-        login: this.login,
-        password: this.password,
+      .post(API + `/api/v1/account/login`, {
+        login: `${this.login}`,
+        password: `${this.password}`,
       })
       .then((response) => {
         if (response.status === 200) {
-          // Сохраняем токен в хранилище
           this.setToken(response.data.accessToken);
           localStorage.setItem("token", response.data.accessToken);
           localStorage.setItem("login", this.login);
-  
-          // Устанавливаем флаг isLoading в false
           this.setLoading(false);
-  
-          // Устанавливаем срок действия токена (например, 2 дня)
-          const currentDate = new Date();
-          const expireDate = new Date(currentDate);
-          expireDate.setDate(currentDate.getDate() + 2);
-          localStorage.setItem("expire", expireDate);
-  
-       
+          let currentDate = new Date();
+          let expire = currentDate.setDate(currentDate.getDate() + 2);
+          localStorage.setItem("expire", expire);
         }
       })
       .catch((err) => {
         console.log(err);
-  
-        // Обработка ошибки при авторизации
-        if (err.response) {
-          // Если сервер вернул ошибку, то обработайте ее здесь
-          if (err.response.status === 401) {
-            // Ошибка "Unauthorized" - неправильный логин или пароль
-            this.setAuthError(true);
-          }
-        } else {
-          // Обработка других ошибок (например, нет связи с сервером)
-          console.error("Произошла ошибка при авторизации:", err.message);
-        }
-  
-        // Устанавливаем флаг isLoading в false
+        this.setAuthError(true);
         this.setLoading(false);
-  
-        // Сбрасываем токен, логин и пароль
-        this.setToken("");
+        localStorage.setItem("token", "");
         this.setLogin("");
         this.setPassword("");
       });
-  }
-  
+  };
 
-  checkToken() {
+  checkToken = () => {
     if (
       localStorage.getItem("token") !== "" &&
       localStorage.getItem("expire") > new Date()
@@ -236,9 +228,9 @@ class Store {
     } else {
       localStorage.clear();
     }
-  }
+  };
 
-  getCompaniesInfo() {
+  getCompaniesInfo = () => {
     this.setCompaniesLoading(true);
     axios
       .get(API + `/api/v1/account/info`, {
@@ -256,9 +248,9 @@ class Store {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
-  getHistograms() {
+  getHistograms = () => {
     this.setSummaryLoading(true);
     axios
       .post(API + `/api/v1/objectsearch/histograms`, {
@@ -305,6 +297,7 @@ class Store {
           excludedSourceGroups: [],
         },
         attributeFilters: {
+          excludeTechNews: this.searchFormChecks.isTechNews,
           excludeAnnouncements: this.searchFormChecks.isAnnouncement,
           excludeDigests: this.searchFormChecks.isNews,
         },
@@ -334,9 +327,9 @@ class Store {
         console.log(err);
         this.setSummaryLoading(false);
       });
-  }
+  };
 
-  getIDs() {
+  getIDs = () => {
     axios
       .post(API + `/api/v1/objectsearch`, {
         issueDateInterval: {
@@ -403,9 +396,9 @@ class Store {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
-  getFirstDocuments() {
+  getFirstDocuments = () => {
     axios
       .post(API + `/api/v1/documents`, {
         ids: this.IDs,
@@ -416,9 +409,9 @@ class Store {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
-  getNextDocuments(next) {
+  getNextDocuments = (next) => {
     this.setDocumentLoading(true);
     axios
       .post(API + `/api/v1/documents`, {
@@ -432,9 +425,8 @@ class Store {
         console.log(err);
         this.setDocumentLoading(false);
       });
-  }
+  };
 }
 
 let store = new Store();
 export default store;
-

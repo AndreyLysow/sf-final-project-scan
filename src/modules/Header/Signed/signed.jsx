@@ -11,7 +11,8 @@ const Signed = observer(() => {
     store.checkToken();
     store.getCompaniesInfo();
   }, []);
-  const login = localStorage.getItem("login");
+  
+  const login = localStorage.getItem("login") || "Гость"
   return (
     <div className="signed">
       <div className="companies-wrapper">
@@ -35,6 +36,7 @@ const Signed = observer(() => {
         )}
       </div>
       <div className="user-info">
+      
         <span className="username">{login}</span>
         <button
           className="logout"

@@ -40,7 +40,7 @@
   right: 50px;
 }
 
-.rocketman-img {
+.quickSearch-img {
   width: 100%;
   height: 470px;
   align-self: flex-end;
@@ -51,7 +51,7 @@
     left: 30px;
   }
 
-  .rocketman-img {
+  .quickSearch-img {
     height: 350px;
     align-self: center;
   }

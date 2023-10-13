@@ -1,3 +1,4 @@
+/* Общие стили для заголовка */
 .header {
   display: flex;
   align-items: center;
@@ -5,26 +6,33 @@
   padding: 0 50px;
 }
 
+/* Стили для навигации в шапке */
 .header-nav {
   display: flex;
   width: 20%;
   justify-content: space-between;
-  & .header-nav__link {
-    font-size: 14px;
-    text-decoration: none;
-    color: #000;
-  }
-  & .header-nav__link:hover {
-    text-decoration: underline;
-  }
 }
 
+/* Стили для ссылок в навигации */
+.header-nav__link {
+  font-size: 14px;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Стили для подчёркивания ссылок при наведении */
+.header-nav__link:hover {
+  text-decoration: underline;
+}
+
+/* Скрыть навигацию на экранах с шириной менее 850px */
 @media (max-width: 850px) {
   .header-nav {
     display: none;
   }
 }
 
+/* Изменения стилей на экранах с шириной менее 550px */
 @media all and (max-width: 550px) {
   .header {
     padding: 10px;
@@ -34,3 +42,4 @@
     width: 80px;
   }
 }
+

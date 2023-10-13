@@ -1,7 +1,7 @@
 import React from "react";
 import "./search.css";
-import rocketman from "../../assets/img/quick-search.svg";
-import document from "../../assets/img/picking-up-key.svg";
+import quickSearch from "../../assets/img/quick-search.svg";
+import document from "../../assets/img/green-dct.svg";
 import folders from "../../assets/img/dct-folders.svg";
 import SearchForm from "./SearchForm/searchForm";
 import { observer } from "mobx-react-lite";
@@ -21,7 +21,7 @@ const Search = observer(() => {
         <div className="search-images">
           <img src={document} alt="document" className="doc-img" />
           <img src={folders} alt="folders" className="folders-img" />
-          <img src={rocketman} alt="rocketman" className="rocketman-img" />
+          <img src={quickSearch} alt="quickSearch" className="quickSearch-img" />
         </div>
       </div>
     </div>

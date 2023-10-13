@@ -24,8 +24,8 @@ const Form = observer(() => {
   } = useForm({
     mode: "onBlur",
     defaultValues: {
-      login: "sf_student1",
-      password: "4i2385j",
+      login: "sf_student9",
+      password: "DTdEwAn",
     },
   });
 
@@ -33,6 +33,7 @@ const Form = observer(() => {
     store.setLogin(data.login);
     store.setPassword(data.password);
     store.getToken();
+    console.log(store.getToken());
     reset();
   };
 

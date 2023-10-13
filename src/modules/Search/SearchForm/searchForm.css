@@ -8,17 +8,12 @@
   justify-content: space-between;
 }
 
-.search-form__inputs {
-  display: flex;
-  flex-direction: column;
-}
-
 .search-form__label {
   display: flex;
   flex-direction: column;
-  width: 91%;
   font-size: 18px;
   margin-bottom: 20px;
+  width: 91%;
   position: relative;
 }
 
@@ -33,11 +28,9 @@
   margin: 20px 0;
 }
 
-select {
-  cursor: pointer;
-}
-
+select,
 .search-form__input::placeholder {
+  cursor: pointer;
   text-align: center;
 }
 
@@ -63,13 +56,10 @@ select {
   align-self: center;
 }
 
-.date-picker__wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
+.date-picker__wrapper,
 .date-picker {
   display: flex;
+  flex-direction: column;
 }
 
 .date-picker__label {
@@ -128,6 +118,10 @@ input[type="checkbox"]:checked::after {
   justify-content: center;
   content: "\2714";
   color: #00a100;
+  position: relative;
+  top: -21px; 
+  left: 4px; 
+  font-size: 35px; 
 }
 
 input[type="checkbox"]:checked + label {
@@ -147,6 +141,25 @@ input[type="checkbox"]:checked {
   height: 55px;
 }
 
+.form-button__submit {
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 15px;
+  width: 320px; 
+  background-color: var(--main-color-green);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, width 0.2s ease;
+}
+
+.form-button__submit:hover {
+  background-color: #596fff6c;
+  transform: scale(1.05); 
+}
+
+
+
 @media screen and (max-width: 1212px) {
   .search-form {
     flex-direction: column;
@@ -162,6 +175,9 @@ input[type="checkbox"]:checked {
     width: 100%;
   }
 }
+
+
+
 
 @media screen and (max-width: 1100px) {
   .search-form__checks {
@@ -206,3 +222,4 @@ input[type="checkbox"]:checked {
     margin-bottom: 10px;
   }
 }
+

@@ -52,6 +52,7 @@
 
 .search-service__img {
   position: relative;
+  margin-top: 20px; 
 }
 
 .search-service__img::before {

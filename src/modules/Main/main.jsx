@@ -4,11 +4,11 @@ import "./main.css";
 import store from "../../store/store";
 import service from "../../assets/img/set-of-services.svg";
 import SimpleSlider from "./Slider/slider";
-import Tariff from "./Tariffs/tariff";
+import PriceList from "./PriceLists/priceList";
 import { observer } from "mobx-react-lite";
 
 const Main = observer(() => {
-  document.title = "Scan service";
+  document.title = "SCAN";
 
   return (
     <div className="main">
@@ -44,9 +44,9 @@ const Main = observer(() => {
         </div>
         <div className="satisfaction_img"></div>
       </section>
-      <section id="tariffs">
+      <section id="prices">
         <h2 className="h2__title">наши тарифы</h2>
-        <Tariff />
+        <PriceList />
       </section>
     </div>
   );

@@ -1,3 +1,4 @@
+
 .footer {
   background-color: var(--main-color-green);
   padding: 0 50px;
@@ -6,16 +7,29 @@
   align-items: center;
 }
 
+.footer-logo {
+  max-width: 100%; 
+}
+
 .footer-info {
   color: #fff;
   font-size: 14px;
   text-align: right;
-  text-decoration: none;
   letter-spacing: 0.01em;
+}
+
+.footer-info a {
+  text-decoration: none;
+  color: #fff; 
 }
 
 @media all and (max-width: 550px) {
   .footer {
     padding: 10px;
   }
+
+  .footer-info p {
+    text-align: center; /* При малых экранах центрируем текст */
+  }
 }
+

@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
-import "./tariff.css";
+import "./priceList.css";
 import beginner from "../../../assets/img/img-lamp-beginner.svg";
 import pro from "../../../assets/img/img-target-pro.svg";
 import business from "../../../assets/img/img-laptop-busines.svg";
 import checkpoint from "../../../assets/img/check-mark.svg";
 import store from "../../../store/store";
 
-const Tariff = observer(() => {
+const PriceList = observer(() => {
   useEffect(() => {
     store.checkToken();
   }, []);
@@ -130,7 +130,7 @@ const Tariff = observer(() => {
     );
   });
 
-  return <div className="tariffs">{res}</div>;
+  return <div className="prices">{res}</div>;
 });
 
-export default Tariff;
+export default PriceList;

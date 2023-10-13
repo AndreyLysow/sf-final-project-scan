@@ -15,24 +15,27 @@ const Header = observer(() => {
 
   return (
     <header className="header">
-      <Link to="/">
-        <img className="header-logo" src={scan} alt="logo" />
+      <Link to="/" className="header-logo">
+        <img src={scan} alt="logo" />
       </Link>
       <nav className="header-nav">
-        <Link className="header-nav__link" to="/">
+        <Link to="/" className="header-nav__link">
           Главная
         </Link>
-        <a className="header-nav__link" href="#tariffs">
+        <a href="#prices" className="header-nav__link">
           Тарифы
         </a>
-        <Link className="header-nav__link" to="/error">
+        <Link to="/error" className="header-nav__link">
           FAQ
         </Link>
       </nav>
-      {store.token ? <Signed /> : <NotSigned />}
-      <BurgerMenu />
+      <div className="header-right">
+        {store.token ? <Signed /> : <NotSigned />}
+        <BurgerMenu />
+      </div>
     </header>
   );
 });
 
 export default Header;
+

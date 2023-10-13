@@ -1,0 +1,59 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 60px;
+  min-height: calc(100vh - 314px);
+  text-align: center; 
+}
+
+.error__info {
+  margin: 50px 0;
+  font-size: 30px;
+  line-height: 70px;
+  text-align: center; 
+}
+
+.error__info span {
+  opacity: 0.9;
+  color: #596fff6c; 
+}
+
+.error__info a {
+  text-decoration: none;
+  color: #596fff6c; 
+}
+
+.error__info a:hover {
+  text-decoration: underline;
+}
+
+.error h1 {
+  font-family: "Ferry";
+  font-size: 150px;
+  display: flex;
+  color: #596fff6c;
+}
+
+@media all and (max-width: 550px) {
+  .error h1 {
+    font-size: 100px;
+  }
+
+  .error__info {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

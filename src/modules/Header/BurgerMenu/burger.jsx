@@ -34,7 +34,7 @@ const BurgerMenu = observer(() => {
             <Link className="burger-nav__link" to="/">
               Главная
             </Link>
-            <a className="burger-nav__link" href="#tariffs">
+            <a className="burger-nav__link" href="#prices">
               Тарифы
             </a>
             <Link className="burger-nav__link" to="/error">
@@ -43,7 +43,7 @@ const BurgerMenu = observer(() => {
           </nav>
           {store.token ? (
             <div className="burger__user-info">
-              <span className="burger__username">{login}</span>
+              <span className="burger__username" >{login}</span>
               <img
                 className="burger__user-avatar"
                 src={avatar}

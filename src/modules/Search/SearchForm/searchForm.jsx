@@ -1,23 +1,14 @@
 import React, { useEffect } from "react";
-import "./searchForm.css";
-import store from "../../../store/store";
+import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { observer } from "mobx-react-lite";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import store from "../../../store/store";
+import "./searchForm.css";
 
 const SearchForm = observer(() => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    !store.token && navigate("/auth");
-  });
-
-  useEffect(() => {
-    store.resetSearchFormChecks();
-  });
-
   const {
     register,
     handleSubmit,
@@ -25,7 +16,8 @@ const SearchForm = observer(() => {
   } = useForm({
     mode: "onBlur",
     defaultValues: {
-      inn: "7736050003",
+      inn: "7710474375"
+      ,
     },
   });
 
@@ -40,17 +32,21 @@ const SearchForm = observer(() => {
     navigate("/result");
   };
 
+  useEffect(() => {
+    !store.token && navigate("/auth");
+    });
+
+    useEffect (() => {
+      store.resetSearchFormChecks();
+  });
+
   return (
     <form className="search-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="search-form__inputs">
         <label className="search-form__label">
           ИНН компании *
           <input
-            className={
-              errors?.inn
-                ? "search-form__input search-form__input-invalid"
-                : "search-form__input"
-            }
+            className={`search-form__input ${errors?.inn ? "search-form__input-invalid" : ""}`}
             placeholder="10 цифр"
             {...register("inn", {
               required: true,
@@ -61,18 +57,15 @@ const SearchForm = observer(() => {
               },
             })}
           />
-          {errors?.inn && errors.inn.type === "required" && (
-            <p className="search-form__error-message">Обязательное поле</p>
-          )}
-          {errors?.inn && errors.inn.type === "minLength" && (
-            <p className="search-form__error-message">Не менее 10 цифр</p>
-          )}
-          {errors?.inn && errors.inn.type === "maxLength" && (
-            <p className="search-form__error-message">Не более 10 цифр</p>
-          )}
-          {errors?.inn && errors.inn.type === "pattern" && (
+          {errors?.inn && (
             <p className="search-form__error-message">
-              Введите корректные данные
+              {errors.inn.type === "required"
+                ? "Обязательное поле"
+                : errors.inn.type === "minLength"
+                ? "Не менее 10 цифр"
+                : errors.inn.type === "maxLength"
+                ? "Не более 10 цифр"
+                : "Введите корректные данные"}
             </p>
           )}
         </label>
@@ -93,11 +86,7 @@ const SearchForm = observer(() => {
           Количество документов в выдаче *
           <input
             type="number"
-            className={
-              errors?.limit
-                ? "search-form__input search-form__input-invalid"
-                : "search-form__input"
-            }
+            className={`search-form__input ${errors?.limit ? "search-form__input-invalid" : ""}`}
             placeholder="От 1 до 1000"
             {...register("limit", {
               required: true,
@@ -105,14 +94,14 @@ const SearchForm = observer(() => {
               max: 1000,
             })}
           />
-          {errors?.limit && errors.limit.type === "required" && (
-            <p className="search-form__error-message">Обязательное поле</p>
-          )}
-          {errors?.limit && errors.limit.type === "min" && (
-            <p className="search-form__error-message">Не менее 1</p>
-          )}
-          {errors?.limit && errors.limit.type === "max" && (
-            <p className="search-form__error-message">Не более 1000</p>
+          {errors?.limit && (
+            <p className="search-form__error-message">
+              {errors.limit.type === "required"
+                ? "Обязательное поле"
+                : errors.limit.type === "min"
+                ? "Не менее 1"
+                : "Не более 1000"}
+            </p>
           )}
         </label>
         <div className="date-picker__wrapper">
@@ -225,28 +214,30 @@ const SearchForm = observer(() => {
           </div>
           <div className="search-form__check">
             <input
-              id="news"
-              type="checkbox"
-              onChange={() => store.setSearchFormChecks("isNews")}
-            />
-            <label htmlFor="news" className="checks-label">
-              Включать сводки новостей
-            </label>
-          </div>
-        </div>
-        <div className="search-form__button">
-          <button
-            disabled={!isValid}
-            className="form-button__submit"
-            type="submit"
-          >
-            Поиск
-          </button>
-          <p className="required-info">* Обязательные к заполнению поля</p>
-        </div>
-      </div>
-    </form>
-  );
-});
-
-export default SearchForm;
+                            id="news"
+                            type="checkbox"
+                            onChange={() => store.setSearchFormChecks("isNews")}
+                          />
+                          <label htmlFor="news" className="checks-label">
+                            Включать сводки новостей
+                          </label>
+                        </div>
+                      </div>
+              
+                      <div className="search-form__button">
+                        <button
+                          disabled={!isValid}
+                          className="form-button__submit"
+                          type="submit"
+                        >
+                          Поиск
+                        </button>
+                        <p className="required-info">* Обязательные к заполнению поля</p>
+                      </div>
+                    </div>
+                  </form>
+                );
+              });
+              
+              export default SearchForm;
+              

@@ -1,12 +1,14 @@
-import "./App.css";
-import Header from "./modules/Header/header";
-import Main from "./modules/Main/main";
-import Footer from "./modules/Footer/footer";
-import Error from "./modules/Error-page/error";
-import Authorization from "./modules/Authorization/auth";
-import Search from "./modules/Search/search";
-import SearchResult from "./modules/SearchResult/searchResult";
+import "./App.css"
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+const Header = React.lazy(() => import("./modules/Header/header"));
+const Main = React.lazy(() => import("./modules/Main/main"));
+const Footer = React.lazy(() => import("./modules/Footer/footer"));
+const Error = React.lazy(() => import("./modules/PageNotFound/error404"));
+const Authorization = React.lazy(() => import("./modules/Authorization/auth"));
+const Search = React.lazy(() => import("./modules/Search/search"));
+const SearchResult = React.lazy(() => import("./modules/SearchResult/searchResult"));
 
 const routesData = [
   { path: "*", element: <Main /> },
@@ -20,15 +22,17 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
-        <main>
-          <Routes>
-            {routesData.map((route, index) => (
-              <Route key={index} path={route.path} element={route.element} />
-            ))}
-          </Routes>
-        </main>
-        <Footer />
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Header />
+          <main>
+            <Routes>
+              {routesData.map((route, index) => (
+                <Route key={index} path={route.path} element={route.element} />
+              ))}
+            </Routes>
+          </main>
+          <Footer />
+        </React.Suspense>
       </BrowserRouter>
     </div>
   );
