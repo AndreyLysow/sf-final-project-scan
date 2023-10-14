@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./main.css";
 import store from "../../store/store";
@@ -6,9 +6,22 @@ import service from "../../assets/img/set-of-services.svg";
 import SimpleSlider from "./Slider/slider";
 import PriceList from "./PriceLists/priceList";
 import { observer } from "mobx-react-lite";
+import icon from "../../logoScan.svg"
 
 const Main = observer(() => {
-  document.title = "SCAN";
+  useEffect(() => {
+    document.title = "СКАН"; // Установка заголовка страницы при монтировании компонента
+    const link = document.querySelector("link[rel~='icon']");
+    if (link) {
+      link.href = icon;
+    }
+  }, []);
+
+  const requestLink = store.token ? (
+    <Link to="/search">Запросить данные</Link>
+  ) : (
+    <Link to="/auth">Войти</Link>
+  );
 
   return (
     <div className="main">
@@ -25,11 +38,7 @@ const Main = observer(() => {
               электронную почту.
             </p>
             <button className="search-service__request-button">
-              {store.token ? (
-                <Link to="/search">Запросить данные</Link>
-              ) : (
-                <Link to="/auth">Войти</Link>
-              )}
+              {requestLink}
             </button>
           </div>
         </div>

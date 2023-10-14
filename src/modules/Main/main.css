@@ -1,70 +1,82 @@
+/* Основные стили */
 .main {
   padding: var(--padding);
 }
 
+/* Служба поиска */
 .search-service {
   display: flex;
   align-items: center;
   min-height: calc(100vh - 177px);
 }
 
-.search-service__title {
-  font-family: "Ferry";
-  font-size: 60px;
-  line-height: 72px;
-  letter-spacing: var(--letter-spacing);
-  margin: 0;
-}
-
-.search-service__info {
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: var(--letter-spacing);
-  margin: 50px 0;
-  max-width: 60%;
-}
-
-.search-service__request-button {
-  cursor: pointer;
-  width: 50%;
-  height: 60px;
-  background-color: var(--main-color-blue);
-  border: none;
-  border-radius: 5px;
-  transition: var(--transition);
-  & a {
-    text-decoration: none;
-    color: #fff;
+  /* Заголовок службы поиска */
+  .search-service__title {
+    font-family: "Ferry";
+    font-size: 60px;
+    line-height: 72px;
     letter-spacing: var(--letter-spacing);
-    font-size: 22px;
+    margin: 0;
   }
-}
 
-.search-service__request-button:hover {
-  transform: scale(1.03);
-  box-shadow: #596fff6c 3px 3px 0px 1px;
-}
+  /* Информация о службе поиска */
+  .search-service__info {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: var(--letter-spacing);
+    margin: 50px 0;
+    max-width: 60%;
+  }
 
-.search-service__request-button:active {
-  transform: scale(1);
-  box-shadow: none;
-}
+  /* Кнопка запроса в службе поиска */
+  .search-service__request-button {
+    cursor: pointer;
+    width: 50%;
+    height: 60px;
+    background-color: var(--main-color-blue);
+    border: none;
+    border-radius: 5px;
+    transition: var(--transition);
+    
+    /* Ссылка внутри кнопки */
+    & a {
+      text-decoration: none;
+      color: #fff;
+      letter-spacing: var(--letter-spacing);
+      font-size: 22px;
+    }
+  }
 
-.search-service__img {
-  position: relative;
-  margin-top: 20px; 
-}
+  /* При наведении на кнопку запроса */
+  .search-service__request-button:hover {
+    transform: scale(1.03);
+    box-shadow: #596fff6c 3px 3px 0px 1px;
+  }
 
-.search-service__img::before {
-  content: "";
-  width: 30px;
-  height: 25px;
-  background-color: #fff;
-  position: absolute;
-  top: 10px;
-  right: 52px;
-}
+  /* При нажатии на кнопку запроса */
+  .search-service__request-button:active {
+    transform: scale(1);
+    box-shadow: none;
+  }
 
+  /* Изображение в службе поиска */
+  .search-service__img {
+    position: relative;
+    margin-top: 20px;
+
+    /* Псевдоэлемент перед изображением */
+    &::before {
+      content: "";
+      width: 30px;
+      height: 25px;
+      background-color: #fff;
+      position: absolute;
+      top: 10px;
+      right: 52px;
+    }
+  }
+
+/* Заголовок уровня h2 */
 .h2__title {
   font-family: "Ferry";
   font-size: 45px;
@@ -72,6 +84,7 @@
   letter-spacing: var(--letter-spacing);
 }
 
+/* Изображение уровня удовлетворенности */
 .satisfaction_img {
   background-image: url("../../assets/img/satisfaction-img.svg");
   margin-bottom: 5%;
@@ -81,52 +94,67 @@
   background-size: cover;
 }
 
+/* Медиазапросы для разных ширин экрана */
+
+/* Для ширины экрана до 1300px */
 @media all and (max-width: 1300px) {
+  /* Изменение направления службы поиска на вертикальное */
   .search-service {
     flex-direction: column;
   }
 
+  /* Стили для мобильного отображения */
   .search-service__mobile {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
+  /* Изменение минимальной ширины кнопки и информации */
   .search-service__request-button,
   .search-service__info {
     min-width: 80%;
   }
 
+  /* Изменение максимальной ширины изображения */
   .image {
     max-width: 100%;
   }
 }
 
+/* Для ширины экрана до 550px */
 @media all and (max-width: 550px) {
+  /* Уменьшение отступов в основном контейнере */
   .main {
     padding: 10px;
   }
 
+  /* Изменение минимальной ширины кнопки и информации */
   .search-service__request-button,
   .search-service__info {
     min-width: 100%;
   }
 
+  /* Изменение размера и отступов заголовков */
   .search-service__title,
   .h2__title {
     font-size: 22px;
     line-height: 34px;
   }
 
+  /* Изменение стилей информации */
   .search-service__info {
     font-size: 18px;
     margin: 20px 0;
   }
 
+  /* Изменение положения псевдоэлемента перед изображением */
   .search-service__img::before {
     top: 1%;
     right: 8%;
   }
+
+  /* Изменение размера фона изображения уровня удовлетворенности */
   .satisfaction {
     background-size: 200%;
     height: 300px;

@@ -3,10 +3,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./slider.css";
-import time from "../../../assets/img/img_clock.svg";
-import search from "../../../assets/img/loupe.svg";
-import safety from "../../../assets/img/guard.svg";
-import happy from "../../../assets/img/smile.svg";
+import clock from "../../../assets/img/img_clock.svg";
+import loupe from "../../../assets/img/loupe.svg";
+import guard from "../../../assets/img/guard.svg";
+import smile from "../../../assets/img/smile.svg";
 
 const sliderSettings = {
   dots: false,
@@ -36,19 +36,19 @@ const sliderSettings = {
 const sliderData = [
   {
     text: "Высокая и оперативная скорость обработки заявки",
-    image: time,
+    image: clock,
   },
   {
     text: "Огромная комплексная база данных, обеспечивающая объективный ответ на запрос",
-    image: search,
+    image: loupe,
   },
   {
     text: "Защита конфиденциальных сведений, не подлежащих разглашению по федеральному законодательству",
-    image: safety,
+    image: guard,
   },
   {
     text: "99,99% процентов довольных клиентов, станьте одним из них!",
-    image: happy,
+    image: smile,
   },
 ];
 

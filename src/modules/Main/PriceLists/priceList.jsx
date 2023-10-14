@@ -13,7 +13,7 @@ const PriceList = observer(() => {
     store.checkToken();
   }, []);
 
-  const tariff = [
+  const rate = [
     {
       styleObj: {
         background: "var(--main-color-yellow)",
@@ -68,21 +68,21 @@ const PriceList = observer(() => {
     },
   ];
 
-  let res = tariff.map(function (item) {
+  let res = rate.map(function (item) {
     return (
-      <div className="tariff" key={item.id}>
-        <div className="tariff-header" style={item.styleObj}>
-          <div className="tariff-header__info">
-            <h3 className="tariff-title">{item.title}</h3>
-            <p className="tariff-description">{item.description}</p>
+      <div className="rate" key={item.id}>
+        <div className="rate-header" style={item.styleObj}>
+          <div className="rate-header__info">
+            <h3 className="rate-title">{item.title}</h3>
+            <p className="rate-description">{item.description}</p>
           </div>
           <img alt="" src={item.image} />
         </div>
         <div
           className={
             store.token && item.id === 1
-              ? "tariff-body tariff-body__current"
-              : "tariff-body"
+              ? "rate-body rate-body__current"
+              : "rate-body"
           }
         >
           <span
@@ -92,31 +92,31 @@ const PriceList = observer(() => {
           >
             Текущий тариф
           </span>
-          <div className="tariff-price__container">
-            <p className="tariff-price">{item.discount}</p>
-            <p className="tariff-price tariff-price__discount">
+          <div className="rate-price__container">
+            <p className="rate-price">{item.discount}</p>
+            <p className="rate-price rate-price__discount">
               {item.price}
             </p>
           </div>
-          <p className="tariff-info tariff-info__loan">{item.loan}</p>
-          <p className="tariff-info tariff-info__title">В тариф входит:</p>
-          <li className="tariff-info">
-            <img className="tariff-info__check" src={checkpoint} alt="" />
+          <p className="rate-info rate-info__loan">{item.loan}</p>
+          <p className="rate-info rate-info__title">В тариф входит:</p>
+          <li className="rate-info">
+            <img className="rate-info__check" src={checkpoint} alt="" />
             {item.details.detail1}
           </li>
-          <li className="tariff-info">
-            <img className="tariff-info__check" src={checkpoint} alt="" />
+          <li className="rate-info">
+            <img className="rate-info__check" src={checkpoint} alt="" />
             {item.details.detail2}
           </li>
-          <li className="tariff-info">
-            <img className="tariff-info__check" src={checkpoint} alt="" />
+          <li className="rate-info">
+            <img className="rate-info__check" src={checkpoint} alt="" />
             {item.details.detail3}
           </li>
           <button
             className={
               store.token && item.id === 1
-                ? "tariff-button tariff-button__current"
-                : "tariff-button"
+                ? "rate-button rate-button__current"
+                : "rate-button"
             }
           >
             <Link to="/error">
