@@ -1,8 +1,8 @@
 import React from "react";
-import "./notSigned.css";
+import "./notAuthUser.css";
 import { Link } from "react-router-dom";
 
-const NotSigned = () => {
+const NotAuthUser = () => {
   return (
     <div className="not-signed">
       <Link className="sign-up" to="/error">
@@ -16,4 +16,4 @@ const NotSigned = () => {
   );
 };
 
-export default NotSigned;
+export default NotAuthUser;

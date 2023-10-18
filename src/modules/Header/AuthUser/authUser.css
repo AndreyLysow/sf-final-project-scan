@@ -1,10 +1,11 @@
-.signed {
+.authUser {
   display: flex;
   align-items: center;
 }
 
 .companies-wrapper {
   display: flex;
+  background-color: rgba(128, 128, 128, 0.2);
   flex-direction: column;
   justify-content: space-around;
   width: 175px;

@@ -1,23 +1,32 @@
-import React, { useEffect } from "react";
-import "./signed.css";
+import React, { useEffect, useState } from "react";
+import "./authUser.css";
 import { observer } from "mobx-react-lite";
 import store from "../../../store/store";
 import avatar from "../../../assets/img/avatar.svg";
-import Loader from "../../Loader/loader";
+import Runing from "../../RunAnimaton/runing";
 import { Link } from "react-router-dom";
 
-const Signed = observer(() => {
+const AuthUser = observer(() => {
+  const [login, setLogin] = useState(localStorage.getItem("login") || "Гость");
+
   useEffect(() => {
     store.checkToken();
     store.getCompaniesInfo();
   }, []);
-  
-  const login = localStorage.getItem("login") || "Гость"
+
+  useEffect(() => {
+    // При монтировании компонента, устанавливаем значение из localStorage в состояние
+    const storedLogin = localStorage.getItem("login");
+    if (storedLogin) {
+      setLogin(storedLogin);
+    }
+  }, []);
+
   return (
-    <div className="signed">
+    <div className="authUser">
       <div className="companies-wrapper">
         {store.isCompaniesLoading ? (
-          <Loader />
+          <Runing />
         ) : (
           <>
             <p className="companies-info">
@@ -36,13 +45,13 @@ const Signed = observer(() => {
         )}
       </div>
       <div className="user-info">
-      
         <span className="username">{login}</span>
         <button
           className="logout"
           onClick={() => {
             store.setToken("");
             localStorage.clear();
+            setLogin("Гость"); // Сбрасываем состояние login на "Гость"
           }}
         >
           <Link className="header-nav__link" to="/">
@@ -55,4 +64,4 @@ const Signed = observer(() => {
   );
 });
 
-export default Signed;
+export default AuthUser;

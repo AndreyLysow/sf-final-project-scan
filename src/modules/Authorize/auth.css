@@ -1,4 +1,4 @@
-.authorization {
+.authorize {
   padding: var(--padding);
   display: grid;
   grid-template-rows: 1fr;

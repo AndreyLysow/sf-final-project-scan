@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./burger.css";
+import "./menu.css";
 import { observer } from "mobx-react-lite";
 import { Link } from "react-router-dom";
 import scan from "../../../assets/img/logo-footer.svg";
 import avatar from "../../../assets/img/avatar.svg";
 import store from "../../../store/store";
 
-const BurgerMenu = observer(() => {
+const UserMenu = observer(() => {
   const [isActive, setActive] = useState(false);
 
   const login = localStorage.getItem("login");
@@ -17,40 +17,40 @@ const BurgerMenu = observer(() => {
   }, []);
 
   return (
-    <div className="burger-button__open" onClick={() => setActive(true)}>
+    <div className="menu-button__open" onClick={() => setActive(true)}>
       {isActive ? (
-        <div className="burger-menu">
-          <div className="burger-top">
-            <img className="burger-logo" src={scan} alt="" />
+        <div className="user-menu">
+          <div className="menu-top">
+            <img className="menu-logo" src={scan} alt="" />
             <button
-              className="burger-button__close"
+              className="menu-button__close"
               onClick={(e) => {
                 e.stopPropagation();
                 setActive(false);
               }}
             ></button>
           </div>
-          <nav className="burger-nav">
-            <Link className="burger-nav__link" to="/">
+          <nav className="menu-nav">
+            <Link className="menu-nav__link" to="/">
               Главная
             </Link>
-            <a className="burger-nav__link" href="#prices">
+            <a className="menu-nav__link" href="#prices">
               Тарифы
             </a>
-            <Link className="burger-nav__link" to="/error">
+            <Link className="menu-nav__link" to="/error">
               FAQ
             </Link>
           </nav>
           {store.token ? (
-            <div className="burger__user-info">
-              <span className="burger__username" >{login}</span>
+            <div className="menu__user-info">
+              <span className="menu__username" >{login}</span>
               <img
-                className="burger__user-avatar"
+                className="menu__user-avatar"
                 src={avatar}
                 alt="user avatar"
               />
               <button
-                className="burger__logout"
+                className="menu__logout"
                 onClick={() => {
                   store.setToken("");
                   localStorage.clear();
@@ -60,11 +60,11 @@ const BurgerMenu = observer(() => {
               </button>
             </div>
           ) : (
-            <div className="burger__not-signed">
-              <Link className="burger__sign-up" to="/error">
+            <div className="menu__not-signed">
+              <Link className="menu__sign-up" to="/error">
                 Зарегистрироваться
               </Link>
-              <Link className="burger__sign-in" to="/auth">
+              <Link className="menu__sign-in" to="/auth">
                 Войти
               </Link>
             </div>
@@ -77,4 +77,4 @@ const BurgerMenu = observer(() => {
   );
 });
 
-export default BurgerMenu;
+export default UserMenu;

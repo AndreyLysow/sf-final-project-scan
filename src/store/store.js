@@ -319,9 +319,10 @@ class Store {
         this.setSummaryResult(response);
         if (
           this.summaryResult.status === 200 &&
-          this.summaryResult.data.data !== [] &&
-          this.summaryResult.data.data !== undefined &&
+          this.summaryResult.data.data !== null &&
+          Array.isArray(this.summaryResult.data.data) &&
           this.summaryResult.data.data.length !== 0
+          
         ) {
           this.setSummaryLoading(false);
         } else {

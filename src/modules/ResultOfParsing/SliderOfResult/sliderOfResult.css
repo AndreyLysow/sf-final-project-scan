@@ -15,7 +15,7 @@
   justify-content: space-between;
 }
 
-.summary-slider {
+.result-slider {
   border-radius: 0px 10px 10px 0px;
   border: 2px solid #029491;
   height: 160px;
@@ -90,7 +90,7 @@
     border-radius: 10px 10px 0px 0px;
   }
 
-  .summary-slider {
+  .result-slider {
     height: 65px;
     margin: 0;
     border-radius: 0px 0px 10px 10px;

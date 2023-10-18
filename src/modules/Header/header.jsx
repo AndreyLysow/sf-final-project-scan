@@ -3,9 +3,9 @@ import "./header.css";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import scan from "../../assets/img/logo-header.svg";
-import Signed from "./Signed/signed";
-import NotSigned from "./NotSigned/notSigned";
-import BurgerMenu from "./BurgerMenu/burger";
+import AuthUser from "./AuthUser/authUser";
+import NotAuthUser from "./NotAuthUser/notAuthUser";
+import UserMenu from "./UserMenu/menu";
 import store from "../../store/store";
 
 const Header = observer(() => {
@@ -30,8 +30,8 @@ const Header = observer(() => {
         </Link>
       </nav>
       <div className="header-right">
-        {store.token ? <Signed /> : <NotSigned />}
-        <BurgerMenu />
+        {store.token ? <AuthUser /> : <NotAuthUser />}
+        <UserMenu />
       </div>
     </header>
   );

@@ -3,9 +3,9 @@ import key from "../../assets/img/picking-up-key.svg";
 import "./auth.css";
 import Form from "./Form/form";
 
-function Authorization() {
+function Authorize() {
   return (
-    <div className="authorization">
+    <div className="authorize">
       <h2 className="auth__title">
         Для оформления подписки <br /> на тариф, необходимо авторизоваться.
       </h2>
@@ -15,4 +15,4 @@ function Authorization() {
   );
 }
 
-export default Authorization;
+export default Authorize;

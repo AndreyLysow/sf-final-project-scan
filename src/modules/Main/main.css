@@ -88,7 +88,7 @@
 .satisfaction_img {
   background-image: url("../../assets/img/satisfaction-img.svg");
   margin-bottom: 5%;
-  height: 615px;
+  height: 300px;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -122,8 +122,8 @@
   }
 }
 
-/* Для ширины экрана до 550px */
-@media all and (max-width: 550px) {
+/* Для ширины экрана до 400px */
+@media all and (max-width: 400px) {
   /* Уменьшение отступов в основном контейнере */
   .main {
     padding: 10px;
@@ -157,6 +157,16 @@
   /* Изменение размера фона изображения уровня удовлетворенности */
   .satisfaction {
     background-size: 200%;
-    height: 300px;
   }
+
+  .satisfaction_img {
+    background-image: url("../../assets/img/satisfaction-img-mobile.svg");
+    margin-bottom: 5%;
+    height: 300px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+
 }

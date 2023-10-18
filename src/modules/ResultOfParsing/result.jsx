@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
-import "./searchResult.css";
+import "./result.css";
 import store from "../../store/store";
 import target from "../../assets/img/target-hit.svg";
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router";
-import SimpleSlider from "./SummarySlider/summarySlider";
-import Documents from "./DocumentList/documents";
+import SliderOfResult from "./SliderOfResult/sliderOfResult";
+import ListDoc from "./ListDoc/listDoc";
 import { Link } from "react-router-dom";
-import Loader from "../Loader/loader";
+import Runing from "../RunAnimaton/runing";
 
-const SearchResult = observer(() => {
+const ResultOfParsing= observer(() => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,17 +51,17 @@ const SearchResult = observer(() => {
         <div>
           {store.isSummaryLoading ? (
             <div className="slider-loader">
-              <Loader />
+              <Runing />
               <p className="loading-data">Загружаем данные</p>
             </div>
           ) : (
-            <SimpleSlider />
+            <SliderOfResult />
           )}
-          <Documents />
+          <ListDoc />
         </div>
       )}
     </div>
   );
 });
 
-export default SearchResult;
+export default ResultOfParsing;

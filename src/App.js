@@ -6,16 +6,16 @@ const Header = React.lazy(() => import("./modules/Header/header"));
 const Main = React.lazy(() => import("./modules/Main/main"));
 const Footer = React.lazy(() => import("./modules/Footer/footer"));
 const Error = React.lazy(() => import("./modules/PageNotFound/error404"));
-const Authorization = React.lazy(() => import("./modules/Authorization/auth"));
+const Authorize = React.lazy(() => import("./modules/Authorize/auth"));
 const Search = React.lazy(() => import("./modules/Search/search"));
-const SearchResult = React.lazy(() => import("./modules/SearchResult/searchResult"));
+const ResultOfParsing = React.lazy(() => import("./modules/ResultOfParsing/result"));
 
 const routesData = [
   { path: "*", element: <Main /> },
   { path: "/error", element: <Error /> },
-  { path: "/auth", element: <Authorization /> },
+  { path: "/auth", element: <Authorize /> },
   { path: "/search", element: <Search /> },
-  { path: "/result", element: <SearchResult /> },
+  { path: "/result", element: <ResultOfParsing /> },
 ];
 
 function App() {

@@ -1,10 +1,10 @@
 import React from "react";
-import "./summarySlider.css";
+import "./sliderOfResult.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import store from "../../../store/store";
-import Loader from "../../Loader/loader";
+import Runing from "../../RunAnimaton/runing";
 
 let settings = {
   dots: false,
@@ -52,7 +52,7 @@ let settings = {
   ],
 };
 
-const SimpleSlider = () => {
+const SliderOfResult = () => {
   let date = store.summaryResult.data.data[0].data.map((item) =>
     item.date
       .substring(0, 10)
@@ -81,7 +81,7 @@ const SimpleSlider = () => {
     <div>
       {store.isSummaryLoading === true ? (
         <div className="slider-loader">
-          <Loader />
+          <Runing />
           <p className="loading-data">Загружаем данные</p>
         </div>
       ) : (
@@ -94,7 +94,7 @@ const SimpleSlider = () => {
               <p>Всего</p>
               <p>Риски</p>
             </div>
-            <Slider className="summary-slider" {...settings}>
+            <Slider className="result-slider" {...settings}>
               {date &&
                 date.map((el, index) => (
                   <div className="slider-item" id={index}>
@@ -111,4 +111,4 @@ const SimpleSlider = () => {
   );
 };
 
-export default SimpleSlider;
+export default SliderOfResult;

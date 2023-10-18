@@ -1,9 +1,9 @@
 import React from "react";
-import "./loader.css";
+import "./runing.css";
 
-function Loader() {
+function Runing() {
   return (
-    <div className="lds-default">
+    <div className="run">
       <div></div>
       <div></div>
       <div></div>
@@ -16,4 +16,4 @@ function Loader() {
   );
 }
 
-export default Loader;
+export default Runing;

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./documents.css";
+import "./listDoc.css";
 import store from "../../../store/store";
 import { observer } from "mobx-react-lite";
 import { Link } from "react-router-dom";
-import Document from "./document/document";
+import Runing from "../../RunAnimaton/runing";
+import vcru from "../../../assets/img/img-vc-ru.svg";
 
-const Documents = observer(() => {
+const ListDoc = observer(() => {
   const [isActive, setActive] = useState(true);
   const [nextTen, setNextTen] = useState(10);
 
@@ -13,8 +14,7 @@ const Documents = observer(() => {
     if (nextTen >= store.IDs.length) {
       setActive(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [nextTen]);
+  }, [nextTen]); // eslint-disable-next-line
 
   useEffect(() => {
     setActive(false);
@@ -29,7 +29,6 @@ const Documents = observer(() => {
         setActive(true);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [store.IDs]);
 
   const showNextTen = () => {
@@ -54,7 +53,7 @@ const Documents = observer(() => {
       <div className="documents">
         {store.document &&
           store.document.map((el) => (
-            <Document
+            <Doc
               issueDate={el.ok.issueDate
                 .substring(0, 10)
                 .split("-")
@@ -75,12 +74,7 @@ const Documents = observer(() => {
       </div>
       {store.isDocumentLoading ? (
         <button disabled className="document-button__active">
-          <div className="lds-ellipsis search-loader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <Runing/>
         </button>
       ) : (
         <button
@@ -94,4 +88,59 @@ const Documents = observer(() => {
   );
 });
 
-export default Documents;
+export default ListDoc;
+
+
+const Doc = (props) => {
+  const imgMatches = props.content.match(/https?:\/\/\S+"/g) || [];
+  const xmlImg = imgMatches.length ? imgMatches[0].replace('"', '') : vcru;
+
+  const content = props.content
+    .replace(/<.*?>/g, "")
+    .replace(/;.*?;/g, "")
+    .replace(/&.*?t/g, "")
+    .replace(/s.*?;/g, "")
+    .replace(/\?.*?\d/g, "")
+    .replace(/\/.*?\s/g, "")
+    .replace(/(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)/g, "");
+
+  return (
+    <div className="doc">
+      <div className="doc-top">
+        <p className="issue-date">
+          {props.issueDate
+            .substring(0, 10)
+            .split("-")
+            .join(".")
+            .split(".")
+            .reverse()
+            .join(".")}
+        </p>
+        <Link className="issue-date" to={props.link} target="_blank">
+          {props.source}
+        </Link>
+      </div>
+      <div className="doc__title-tag">
+        <h3 className="doc-title">{props.title}</h3>
+        {props.isTechNews && (
+          <span className="doc-tag">Технические новости</span>
+        )}
+        {props.isAnnouncement && (
+          <span className="doc-tag announcement">Анонсы и события</span>
+        )}
+        {props.isDigest && (
+          <span className="doc-tag news">Сводки новостей</span>
+        )}
+      </div>
+      <img className="document-img" src={xmlImg} alt="" />
+      <p className="doc-content">{content}</p>
+      <div className="doc-bottom">
+        <Link className="doc-link" to={props.link} target="_blank">
+          Читать в источнике
+        </Link>
+        <span className="issue-date">Слова: {props.wordCount}</span>
+      </div>
+    </div>
+  );
+};
+

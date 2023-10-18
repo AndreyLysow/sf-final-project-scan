@@ -8,6 +8,7 @@ import yandex from "../../../assets/img/logo-yandex.svg";
 import "./form.css";
 import store from "../../../store/store";
 import { observer } from "mobx-react-lite";
+import Runing from "../../RunAnimaton/runing";
 
 const Form = observer(() => {
   const navigate = useNavigate();
@@ -33,7 +34,6 @@ const Form = observer(() => {
     store.setLogin(data.login);
     store.setPassword(data.password);
     store.getToken();
-    console.log(store.getToken());
     reset();
   };
 
@@ -87,12 +87,7 @@ const Form = observer(() => {
           className="form-button__submit"
           type="submit"
         >
-          <div className="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <Runing />
         </button>
       ) : (
         <button
