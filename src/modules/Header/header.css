@@ -30,12 +30,28 @@
   .header-nav {
     display: none;
   }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
 }
 
 /* Изменения стилей на экранах с шириной менее 550px */
 @media all and (max-width: 550px) {
   .header {
     padding: 10px;
+
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
   }
 
   .header-logo {

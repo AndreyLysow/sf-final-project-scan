@@ -29,7 +29,7 @@
   }
 
   .footer-info p {
-    text-align: center; /* При малых экранах центрируем текст */
+    text-align: right;
   }
 }
 

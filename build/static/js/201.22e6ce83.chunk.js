@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksf_finproject_scan=self.webpackChunksf_finproject_scan||[]).push([[201],{7201:function(f,s,a){a(2791);s.Z=a.p+"static/media/logo-footer.b73657f2e01ada87363daac94b96f0fd.svg"}}]);
+//# sourceMappingURL=201.22e6ce83.chunk.js.map

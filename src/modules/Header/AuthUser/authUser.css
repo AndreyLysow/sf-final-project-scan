@@ -1,6 +1,7 @@
 .authUser {
   display: flex;
   align-items: center;
+ 
 }
 
 .companies-wrapper {
@@ -70,7 +71,9 @@
   }
 
   .companies-wrapper {
+    display: flex;
     width: 100%;
     margin-right: 20px;
+    justify-content:space-between;
   }
 }

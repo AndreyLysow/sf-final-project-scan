@@ -242,12 +242,14 @@ input[type="checkbox"]:hover {
 input[type="checkbox"]:checked::after {
   display: flex;
   justify-content: center;
-  content: "\2714";
-  color: #00a100;
+  content: url("../../assets/img/check-mark.svg");
   position: relative;
-  top: -21px;
-  left: 4px;
-  font-size: 35px;
+  bottom: 0px;
+  top: -8px;
+  right: 0px;
+  height: 15px;
+  width: 15px;
+  font-size: 25px;
 }
 
 input[type="checkbox"]:checked + label {
